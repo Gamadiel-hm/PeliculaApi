@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeliculaApi", "PeliculaApi.csproj", "{9360A8AE-3647-42E7-9736-1640EDFD0A9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeliculaApi", "PeliculaApi.csproj", "{9360A8AE-3647-42E7-9736-1640EDFD0A9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeliculaModel", "..\PeliculaModel\PeliculaModel.csproj", "{B38697C7-0DB2-49C6-B2DA-924F30BC4848}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeliculaModel", "..\PeliculaModel\PeliculaModel.csproj", "{B38697C7-0DB2-49C6-B2DA-924F30BC4848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeliculaServices", "..\PeliculaServices\PeliculaServices.csproj", "{4FB22060-EA43-43CB-B592-F1F39264986D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeliculaServices", "..\PeliculaServices\PeliculaServices.csproj", "{4FB22060-EA43-43CB-B592-F1F39264986D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeliculaServicesDependency", "..\PeliculaServicesDependency\PeliculaServicesDependency.csproj", "{6CA0946D-FC9C-44E0-8B60-A88A614EDFCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeliculaServicesDependency", "..\PeliculaServicesDependency\PeliculaServicesDependency.csproj", "{6CA0946D-FC9C-44E0-8B60-A88A614EDFCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeliculaDb", "..\PeliculaDb\PeliculaDb.csproj", "{9A2F2D3D-6918-47A8-BDB6-ADF8D737D3FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeliculaDb", "..\PeliculaDb\PeliculaDb.csproj", "{9A2F2D3D-6918-47A8-BDB6-ADF8D737D3FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7792801A-F37E-4954-9668-43163D0143D5}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

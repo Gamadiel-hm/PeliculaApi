@@ -1,6 +1,6 @@
 ﻿namespace PeliculaModel.Entities
 {
-    public class Genero
+    public class Genero : EntitySoftDelete
     {
         public int GeneroId { get; set; }
         public string Name { get; set; }

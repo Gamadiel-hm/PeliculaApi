@@ -16,11 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PeliculaDb\PeliculaDb.csproj" />
+    <ProjectReference Include="..\PeliculaModel\PeliculaModel.csproj" />
+    <ProjectReference Include="..\PeliculaServicesDependency\PeliculaServicesDependency.csproj" />
+    <ProjectReference Include="..\PeliculaServices\PeliculaServices.csproj" />
   </ItemGroup>
 
 </Project>

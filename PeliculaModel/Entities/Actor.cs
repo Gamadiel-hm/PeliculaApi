@@ -1,6 +1,6 @@
 ﻿namespace PeliculaModel.Entities
 {
-    public class Actor
+    public class Actor : EntitySoftDelete
     {
         public int ActorId { get; set; }
         public string Name { get; set; }

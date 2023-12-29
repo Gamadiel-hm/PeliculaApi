@@ -10,6 +10,8 @@ namespace PeliculaDb.Config
         {
             builder.Property(prop => prop.Name)
                 .IsRequired().HasMaxLength(50);
+
+            builder.HasQueryFilter(prop => !prop.Delete);
         }
     }
 }

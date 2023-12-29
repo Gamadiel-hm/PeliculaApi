@@ -6,4 +6,9 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PeliculaDb\PeliculaDb.csproj" />
+    <ProjectReference Include="..\PeliculaServices\PeliculaServices.csproj" />
+  </ItemGroup>
+
 </Project>

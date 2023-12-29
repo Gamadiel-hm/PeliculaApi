@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using PeliculaApi.Utilities;
 using PeliculaDb;
+using PeliculaServices.Services;
+using PeliculaServicesDependency.Services;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +23,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(opt =>
     opt.UseSqlServer(connection);
     opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
+
+// Services 
+builder.Services.AddScoped<IGeneroService, GeneroServiceDependency>();
+
+// Response 
+builder.Services.AddScoped<ResponseHttp>();
+
+// Mapper
+builder.Services.AddAutoMapper(typeof(PeliculaModel.Services.MapperProfile));
 
 var app = builder.Build();
 
