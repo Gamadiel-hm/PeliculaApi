@@ -53,17 +53,15 @@ namespace PeliculaApi.Controllers
         [HttpPost]
         public ActionResult Post([FromBody] GeneroCreateDto generoCreateDto)
         {
-            Task<ResponseService> completedTask = _generoService.Post(generoCreateDto);
+            Task<ResponseService> responseService = _generoService.Post(generoCreateDto);
 
-            if (!completedTask.Result.Completed)
+            if (!responseService.Result.Completed)
             {
-                _responseHttp.Response(409, completedTask.Result.Message);
+                _responseHttp.Response(409, responseService.Result.Message);
                 return Conflict(_responseHttp);
             }
 
-            _responseHttp.Response(201, "Create new Genre");
-
-            return Ok(_responseHttp);
+            return Created();
         }
 
         [HttpPost("range")]
@@ -76,7 +74,7 @@ namespace PeliculaApi.Controllers
                 _responseHttp.Response(409, responseService.Result.Message);
                 return Conflict(_responseHttp);
             }
-            _responseHttp.Response(200, "Create New Genres");
+            _responseHttp.Response(200, responseService.Result.Message);
 
             return Ok(_responseHttp);
         }
@@ -107,7 +105,7 @@ namespace PeliculaApi.Controllers
                 return NotFound(responseService);
             }
 
-            _responseHttp.Response(200, "Delete soft Genre Completed");
+            _responseHttp.Response(200, responseService.Result.Message);
             return Ok(_responseHttp);
         }
 
@@ -122,7 +120,7 @@ namespace PeliculaApi.Controllers
                 return NotFound(_responseHttp);
             }
 
-            _responseHttp.Response(200, "Delete Logic Completed");
+            _responseHttp.Response(200, responseService.Result.Message);
             return Ok(_responseHttp);
         }
     }

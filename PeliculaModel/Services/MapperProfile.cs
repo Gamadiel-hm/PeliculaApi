@@ -10,6 +10,11 @@ namespace PeliculaModel.Services
         {
             CreateMap<Genero, GeneroDto>();
             CreateMap<GeneroCreateDto, Genero>();
+
+            //Actor
+            CreateMap<Actor, ActorDto>();
+            CreateMap<ActorCreateDto, Actor>();
+            CreateMap<Actor, ActorByIdDto>();
         }
     }
 }

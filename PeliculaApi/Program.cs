@@ -25,7 +25,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(opt =>
 });
 
 // Services 
-builder.Services.AddScoped<IGeneroService, GeneroServiceDependency>();
+builder.Services
+    .AddScoped<IGeneroService, GeneroServiceDependency>()
+    .AddScoped<IActorService, ActorServiceDependency>();
 
 // Response 
 builder.Services.AddScoped<ResponseHttp>();

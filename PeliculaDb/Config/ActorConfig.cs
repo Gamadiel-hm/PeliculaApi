@@ -14,6 +14,8 @@ namespace PeliculaDb.Config
                 .IsRequired();
             builder.Property(prop => prop.Biography)
                 .IsRequired();
+
+            builder.HasQueryFilter(prop => !prop.Delete);
         }
     }
 }
