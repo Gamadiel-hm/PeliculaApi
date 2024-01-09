@@ -19,7 +19,10 @@ namespace PeliculaDb.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
                     Biography = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BirthDate = table.Column<DateTime>(type: "date", nullable: false)
+                    BirthDate = table.Column<DateTime>(type: "date", nullable: false),
+                    Delete = table.Column<bool>(type: "bit", nullable: false),
+                    DateDelete = table.Column<DateTime>(type: "date", nullable: false),
+                    DateCreate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +35,10 @@ namespace PeliculaDb.Migrations
                 {
                     GeneroId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Delete = table.Column<bool>(type: "bit", nullable: false),
+                    DateDelete = table.Column<DateTime>(type: "date", nullable: false),
+                    DateCreate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,7 +53,10 @@ namespace PeliculaDb.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     InView = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    Premier = table.Column<DateTime>(type: "date", nullable: false)
+                    Premier = table.Column<DateTime>(type: "date", nullable: false),
+                    Delete = table.Column<bool>(type: "bit", nullable: false),
+                    DateDelete = table.Column<DateTime>(type: "date", nullable: false),
+                    DateCreate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,13 +92,12 @@ namespace PeliculaDb.Migrations
                 name: "PeliculaGeneros",
                 columns: table => new
                 {
-                    PeliculaÏd = table.Column<int>(type: "int", nullable: false),
-                    GeneroId = table.Column<int>(type: "int", nullable: false),
-                    PeliculaId = table.Column<int>(type: "int", nullable: true)
+                    PeliculaId = table.Column<int>(type: "int", nullable: false),
+                    GeneroId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PeliculaGeneros", x => new { x.PeliculaÏd, x.GeneroId });
+                    table.PrimaryKey("PK_PeliculaGeneros", x => new { x.PeliculaId, x.GeneroId });
                     table.ForeignKey(
                         name: "FK_PeliculaGeneros_Generos_GeneroId",
                         column: x => x.GeneroId,
@@ -100,7 +108,8 @@ namespace PeliculaDb.Migrations
                         name: "FK_PeliculaGeneros_Peliculas_PeliculaId",
                         column: x => x.PeliculaId,
                         principalTable: "Peliculas",
-                        principalColumn: "PeliculaId");
+                        principalColumn: "PeliculaId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -112,11 +121,6 @@ namespace PeliculaDb.Migrations
                 name: "IX_PeliculaGeneros_GeneroId",
                 table: "PeliculaGeneros",
                 column: "GeneroId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PeliculaGeneros_PeliculaId",
-                table: "PeliculaGeneros",
-                column: "PeliculaId");
         }
 
         /// <inheritdoc />

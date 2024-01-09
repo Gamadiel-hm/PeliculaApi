@@ -27,7 +27,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(opt =>
 // Services 
 builder.Services
     .AddScoped<IGeneroService, GeneroServiceDependency>()
-    .AddScoped<IActorService, ActorServiceDependency>();
+    .AddScoped<IActorService, ActorServiceDependency>()
+    .AddScoped<IPeliculaServices, PeliculaServiceDependency>();
 
 // Response 
 builder.Services.AddScoped<ResponseHttp>();

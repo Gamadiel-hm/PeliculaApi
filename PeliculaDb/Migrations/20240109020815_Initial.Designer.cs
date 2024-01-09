@@ -12,8 +12,8 @@ using PeliculaDb;
 namespace PeliculaDb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231228024431_Soft_Delete")]
-    partial class Soft_Delete
+    [Migration("20240109020815_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -143,20 +143,15 @@ namespace PeliculaDb.Migrations
 
             modelBuilder.Entity("PeliculaModel.Entities.PeliculaGenero", b =>
                 {
-                    b.Property<int>("PeliculaÏd")
+                    b.Property<int>("PeliculaId")
                         .HasColumnType("int");
 
                     b.Property<int>("GeneroId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PeliculaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PeliculaÏd", "GeneroId");
+                    b.HasKey("PeliculaId", "GeneroId");
 
                     b.HasIndex("GeneroId");
-
-                    b.HasIndex("PeliculaId");
 
                     b.ToTable("PeliculaGeneros");
                 });
@@ -190,7 +185,9 @@ namespace PeliculaDb.Migrations
 
                     b.HasOne("PeliculaModel.Entities.Pelicula", "Pelicula")
                         .WithMany("PeliculaGeneros")
-                        .HasForeignKey("PeliculaId");
+                        .HasForeignKey("PeliculaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Genero");
 

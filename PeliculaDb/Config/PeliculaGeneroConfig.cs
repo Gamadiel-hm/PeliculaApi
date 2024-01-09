@@ -8,7 +8,7 @@ namespace PeliculaDb.Config
     {
         public void Configure(EntityTypeBuilder<PeliculaGenero> builder)
         {
-            builder.HasKey(key => new { key.PeliculaÏd, key.GeneroId });
+            builder.HasKey(key => new { key.PeliculaId, key.GeneroId });
         }
     }
 }
